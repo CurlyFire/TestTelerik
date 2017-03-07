@@ -3,7 +3,7 @@
 *@
 @{
 }
-@(Html.Kendo().Grid<FrontEnd.Domain.Person>()
+@(Html.Kendo().Grid<Backend.Documents.Person>()
       .Name("grid")
       .Columns(columns =>
       {
@@ -29,7 +29,7 @@
                 model.Id(p => p.NAM);
             })
             .PageSize(2000)
-            .Read(read => read.Action("Read", "Test"))
+            .Read(read => read.Url("http://localhost:50865/TelerikData/Read"))
       )
 )
 

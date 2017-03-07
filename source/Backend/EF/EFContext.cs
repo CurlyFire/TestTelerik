@@ -1,8 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Backend.Documents;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using FrontEnd.Domain;
 
-namespace FrontEnd.EF
+namespace Backend.EF
 {
     public class EFContext : DbContext
     {

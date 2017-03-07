@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace FrontEnd.Domain
+namespace Backend.Documents
 {
     public class Person
     {
