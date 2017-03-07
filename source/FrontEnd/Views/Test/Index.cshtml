@@ -1,0 +1,39 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@(Html.Kendo().Grid<FrontEnd.Domain.Person>()
+      .Name("grid")
+      .Columns(columns =>
+      {
+          columns.Bound(p => p.NAM).Width(100);
+          columns.Bound(p => p.Prenom);
+          columns.Bound(p => p.Nom);
+          columns.Bound(p => p.Sexe);
+          columns.Bound(p => p.Anniversaire);
+      })
+      .Sortable()
+      .Scrollable(scrollable => scrollable.Virtual(true))
+      .Scrollable(scrollable => scrollable.Height(850))
+      //.Pageable()
+      .Filterable()
+      .Resizable(config => config.Columns(true))
+      .Groupable()
+      .Selectable(config => config.Mode(GridSelectionMode.Multiple))
+      .DataSource(dataSource =>
+          dataSource
+            .WebApi()
+            .Model(model =>
+            {
+                model.Id(p => p.NAM);
+            })
+            .PageSize(2000)
+            .Read(read => read.Action("Read", "Test"))
+      )
+)
+
+@* All initialization scripts are rendered to the bottom of the page, see _Layout.cshtml *@
+@section scripts {
+    @Html.Kendo().DeferredScripts()
+}
